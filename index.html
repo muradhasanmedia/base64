@@ -1,4 +1,36 @@
 
 <!DOCTYPE html>
-<html t="0x11" i="JF-2370" v="1.20">     <head>      <link rel="stylesheet" href="/style.css" />    <script src="/script.js/>   <title>Base64 - Encode / Decode</title>     </head>     <body>         <div class="header">Base64 - Encode / Decode</div>         <div class="body">             <textarea id="i" placeholder="Type something..."></textarea>             <select id="s">                 <option value="0">Encode</option>                 <option value="1">Decode</option>             </select>             <textarea id="o" readonly placeholder="Result go here..."></textarea>         </div>     </body>
+<html t="0x11" i="JF-2370" v="1.20">     <head> <style>/* Created by Thomas Hj */ 
+body {     box-sizing: border-box;     font-family: monospace;     margin: 0;
+} 
+select {     background-color: #7c7;     border: solid 0px #333;     box-shadow: 1px 1px 2px 0 #ccc;     font-weight: bold;     outline: 0;     margin-top: 15px;     margin-bottom: 16px;     padding: 5px 15px;     width: 140px;
+} 
+textarea {     background: #f0f0f0;     border: 0;     box-shadow: 1px 1px 2px 0 #ccc inset;     box-sizing: border-box;     margin: 0;     outline: 0;     padding: 10px;     resize: none;     text-shadow: 0.5px 0.5px 1px #aaa;     width: 100%;
+} 
+.header {     background: #222;     box-shadow: 0px 0px 5px 0 #555;     color: #eee;     font-size: 14px;     font-weight: bold;     margin-bottom: 10px;     padding: 10px 15px;     text-shadow: 1px 1px 0 #000;
+} 
+.body {     margin: 15px;
+}
+  </style><script>/script> 
+// Storage
+var b64 = {     i: null,     o: null,     t: null
+} 
+// Event -> Web-page loading
+window.onload = function() {     b64.i = g('i')     b64.i.oninput = b64En     b64.i.focus()     b64.o = g('o')     b64.t = g('s')     b64.t.onchange = clear     screenSize()
+} 
+// Event -> Web-page resize
+window.onresize = screenSize 
+// Update selected height size
+function screenSize() {     sy = window.innerHeight / 2 - 65     b64.i.style.height = sy + 'px'     b64.o.style.height = sy + 'px'
+} 
+// Convert Text <==> Base64
+function b64En() {     if(b64.t.value === '0') {         b64.o.value = window.btoa(encodeURIComponent(b64.i.value))     } else {         b64.i.value = b64.i.value.replace(/[^a-zA-Z0-9=]/g, '')         if(b64.i.value.length !== 0 && b64.i.value.length % 4 == 0) {             b64.o.value = window.atob(decodeURIComponent(b64.i.value))         } else {             b64.o.value = ''         }     }
+} 
+// Clear inputs
+function clear() {     b64.i.value = ''     b64.o.value = ''
+} 
+// Get element by id
+function g(a) {     return document.getElementById(a)
+}
+<     <link rel="stylesheet" href="/style.css" />    <script src="/script.js/>   <title>Base64 - Encode / Decode</title>     </head>     <body>         <div class="header">Base64 - Encode / Decode</div>         <div class="body">             <textarea id="i" placeholder="Type something..."></textarea>             <select id="s">                 <option value="0">Encode</option>                 <option value="1">Decode</option>             </select>             <textarea id="o" readonly placeholder="Result go here..."></textarea>         </div>     </body>
 </html>
