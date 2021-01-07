@@ -1,0 +1,11 @@
+
+body {     box-sizing: border-box;     font-family: monospace;     margin: 0;
+} 
+select {     background-color: #7c7;     border: solid 0px #333;     box-shadow: 1px 1px 2px 0 #ccc;     font-weight: bold;     outline: 0;     margin-top: 15px;     margin-bottom: 16px;     padding: 5px 15px;     width: 140px;
+} 
+textarea {     background: #f0f0f0;     border: 0;     box-shadow: 1px 1px 2px 0 #ccc inset;     box-sizing: border-box;     margin: 0;     outline: 0;     padding: 10px;     resize: none;     text-shadow: 0.5px 0.5px 1px #aaa;     width: 100%;
+} 
+.header {     background: #222;     box-shadow: 0px 0px 5px 0 #555;     color: #eee;     font-size: 14px;     font-weight: bold;     margin-bottom: 10px;     padding: 10px 15px;     text-shadow: 1px 1px 0 #000;
+} 
+.body {     margin: 15px;
+}
